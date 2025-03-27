@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tic Tac Toe</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+      background: #f4f4f4;
+      padding: 40px;
+    }
+    h1 {
+      margin-bottom: 30px;
+    }
+    .game-board {
+      display: grid;
+      grid-template-columns: repeat(3, 100px);
+      gap: 5px;
+      justify-content: center;
+      margin: auto;
+    }
+    .cell {
+      width: 100px;
+      height: 100px;
+      background: #fff;
+      font-size: 2rem;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 2px solid #2575fc;
+      cursor: pointer;
+    }
+    .status {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Tic Tac Toe</h1>
+  <div class="game-board" id="board"></div>
+  <div class="status" id="status"></div>
+  <button class="restart-button" onclick="restartGame()">Restart Game</button>
+
+
+  <script>
+      const board = document.getElementById("board");
+      const status = document.getElementById("status");
+      let currentPlayer = "X";
+      let gameState = Array(9).fill("");
+      let gameActive = true;
+
+      const winConditions = [
+        [0,1,2], [3,4,5], [6,7,8],
+        [0,3,6], [1,4,7], [2,5,8],
+        [0,4,8], [2,4,6]
+      ];
+
+      function checkWinner(state = gameState) {
+        for (let condition of winConditions) {
+          const [a, b, c] = condition;
+          if (state[a] && state[a] === state[b] && state[a] === state[c]) {
+            return state[a];
+          }
+        }
+        if (!state.includes("")) {
+          return "tie";
+        }
+        return null;
+      }
+
+      function handleClick(index) {
+        if (!gameActive || gameState[index]) return;
+        gameState[index] = "X";
+        renderBoard();
+        const result = checkWinner();
+        if (result) endGame(result);
+        else aiMove();
+      }
+
+      function aiMove() {
+        let bestScore = -Infinity;
+        let move;
+        for (let i = 0; i < gameState.length; i++) {
+          if (gameState[i] === "") {
+            gameState[i] = "O";
+            let score = minimax(gameState, 0, false);
+            gameState[i] = "";
+            if (score > bestScore) {
+              bestScore = score;
+              move = i;
+            }
+          }
+        }
+        gameState[move] = "O";
+        renderBoard();
+        const result = checkWinner();
+        if (result) endGame(result);
+      }
+
+      function minimax(state, depth, isMaximizing) {
+        let result = checkWinner(state);
+        if (result !== null) {
+          if (result === "X") return -1;
+          if (result === "O") return 1;
+          return 0;
+        }
+
+        if (isMaximizing) {
+          let best = -Infinity;
+          for (let i = 0; i < state.length; i++) {
+            if (state[i] === "") {
+              state[i] = "O";
+              let score = minimax(state, depth + 1, false);
+              state[i] = "";
+              best = Math.max(score, best);
+            }
+          }
+          return best;
+        } else {
+          let best = Infinity;
+          for (let i = 0; i < state.length; i++) {
+            if (state[i] === "") {
+              state[i] = "X";
+              let score = minimax(state, depth + 1, true);
+              state[i] = "";
+              best = Math.min(score, best);
+            }
+          }
+          return best;
+        }
+      }
+
+      function endGame(result) {
+        gameActive = false;
+        status.textContent = result === "tie" ? "It's a tie!" : `${result} wins!`;
+      }
+
+      function renderBoard() {
+        board.innerHTML = "";
+        gameState.forEach((value, index) => {
+          const cell = document.createElement("div");
+          cell.className = "cell";
+          cell.textContent = value;
+          cell.onclick = () => handleClick(index);
+          board.appendChild(cell);
+        });
+      }
+
+      function restartGame() {
+        currentPlayer = "X";
+        gameState = Array(9).fill("");
+        gameActive = true;
+        status.textContent = "";
+        renderBoard();
+      }
+
+      restartGame();
+    </script>
+</body>
+</html>
