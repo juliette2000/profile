@@ -168,10 +168,11 @@ section h2 {
 
 /* Languages section */
 .languages {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  display: flex;
+  flex-direction: column;
   gap: 20px;
 }
+
 
 .language h3 {
   margin-bottom: 5px;
