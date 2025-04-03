@@ -1,62 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>XuJin Chen - Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Xu Jin Chen - Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Poppins', sans-serif; color: #333; background: #f4f4f4; }
-    p {
-      text-indent: 30px; /* Adds indentation to the first line of each paragraph */
-      line-height: 1.8;  /* Increases space between lines */
-      margin-bottom: 16px; /* Adds space between paragraphs */
-    }
-    header { background: linear-gradient(to bottom, #d3a4f4, #e0f7fa); color: white; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25); padding: 100px 20px; text-align: center; }
-    header h1 { font-size: 3rem; margin-bottom: 10px; }
-    header p { font-size: 1.2rem; }
-    .social-links a { color: white; margin: 0 10px; text-decoration: none; font-size: 1.2rem; display: inline-block; }
-    .social-links a:hover { text-decoration: underline; }
-    section { padding: 60px 20px; max-width: 1100px; margin: auto; background: white; margin-top: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
-    section h2 { font-size: 2rem; margin-bottom: 20px; border-bottom: 2px solid #2575fc; display: inline-block; }
-    .projects, .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-    .project, .skill { padding: 20px; border: 1px solid #eee; border-radius: 10px; transition: transform 0.3s; background: #fafafa; }
-    .project:hover, .skill:hover { transform: translateY(-5px); }
-    footer { text-align: center; padding: 40px 20px; color: #555; }
-    .contact-form { display: flex; flex-direction: column; gap: 15px; max-width: 600px; margin: auto; }
-    .contact-form input, .contact-form textarea { padding: 12px; border: 1px solid #ccc; border-radius: 8px; }
-    .contact-form button { padding: 12px; background: #2575fc; color: white; border: none; border-radius: 8px; cursor: pointer; transition: background 0.3s; }
-    .contact-form button:hover { background: #6a11cb; }
-
-
-  </style>
+  <link rel="stylesheet" href="index.css">
 </head>
 <body>
+
+  <!-- Sidebar -->
+  <div id="sidebar" class="sidebar">
+    <button class="closebtn" onclick="toggleSidebar(true)">&times;</button>
+    <h3>🛠️ Tools</h3>
+
+    <div class="tool-card">
+      <a href="tip.html">💸 Tip Calculator</a>
+    </div>
+
+  </div>
+
+
   <header>
-    <h1>Xu Jin Chen</h1>
-    <p>Front end & Back end developper</p>
-    <div class="social-links">
-      <a href="https://github.com/juliette2000" target="_blank">GitHub</a>
-      <a href="https://www.linkedin.com/in/xujin-chen-92873a1ab/" target="_blank">LinkedIn</a>
+    <div class="menu-container">
+      <button class="openbtn" onclick="toggleSidebar()">☰</button>
+    </div>
+    <div class="header-content">
+      <h1>Xu Jin Chen</h1>
+      <p>Front end & Back end developper</p>
+      <div class="social-links">
+        <a href="https://github.com/juliette2000" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/xujin-chen-92873a1ab/" target="_blank">LinkedIn</a>
+      </div>
     </div>
   </header>
+
 
   <section id="about">
     <h2>About Me</h2>
     <p>I’m Xujin Chen, a passionate computer engineering student at Concordia University. I love building things that connect technology and real life — whether it’s designing an autonomous hovercraft, developing sensor-based applications, or working with data.</p>
-
     <p>I enjoy problem-solving and learning new tools and technologies, especially in programming (C++, Java, Python) and data visualization (Power BI). I thrive in collaborative environments and love working on projects that challenge me to think creatively and technically.</p>
-
     <p>Right now, I’m gaining hands-on experience working with databases and system maintenance, and I’m always excited to take on new opportunities where I can grow, contribute, and innovate!</p>
   </section>
-
 
   <section id="projects">
     <h2>Projects</h2>
     <div class="projects">
       <div class="project">
-        <h3>Hovercraft Project (Academic) </h3>
+        <h3>Hovercraft Project (Academic)</h3>
         <ul>
           <li>In a team of six we built a hovercraft</li>
           <li>Design the hovercraft</li>
@@ -64,39 +55,36 @@
         </ul>
       </div>
       <div class="project">
-        <h3>Water TDS Application (Academic) </h3>
+        <h3>Water TDS Application (Academic)</h3>
         <ul>
           <li>In a team of five we built a hovercraft</li>
           <li>Learn about water treatment</li>
           <li>Code the sensor and the application</li>
-          </ul>
-          <a href="https://juliette2000.github.io/FireTDS_21/" target="_blank">More information</a>
-         </div>
-        <div class="project">
-          <h3>Asteroid Harvesters Game</h3>
-          <p>A small JavaScript game where you collect resources from asteroids!</p>
-          <a href="https://juliette2000.github.io/Asteroid-Harvesters/" target="_blank">More information</a>
-        </div>
-        <div class="project">
-          <h3>Wildfire Surveillance Robot</h3>
-          <p>An autonomous robot equipped with thermal and night vision cameras for wildfire monitoring.</p>
-          <a href="wildfire_project.html" target="_blank">View project</a>
-        </div>
-
+        </ul>
+        <a href="https://juliette2000.github.io/FireTDS_21/" target="_blank">More information</a>
+      </div>
+      <div class="project">
+        <h3>Asteroid Harvesters Game</h3>
+        <p>A small JavaScript game where you collect resources from asteroids!</p>
+        <a href="https://juliette2000.github.io/Asteroid-Harvesters/" target="_blank">More information</a>
+      </div>
+      <div class="project">
+        <h3>Wildfire Surveillance Robot</h3>
+        <p>An autonomous robot equipped with thermal and night vision cameras for wildfire monitoring.</p>
+        <a href="wildfire_project.html" target="_blank">View project</a>
+      </div>
     </div>
   </section>
 
   <section id="game">
-    <h2>Game</h2>
+    <h2>Small Game</h2>
     <div class="game">
-      <a href="tic-tac-toe.html" target="_blank">Tic Tac toe</a>
+      <a href="tic-tac-toe.html" target="_blank">Tic Tac Toe</a>
     </div>
-
     <div class="game">
-        <a href="piano.html" target="_blank">Piano</a>
-      </div>
+      <a href="piano.html" target="_blank">Piano</a>
+    </div>
   </section>
-
 
   <section id="skills">
     <h2>Skills</h2>
@@ -134,7 +122,32 @@
   </section>
 
   <footer>
-    <p>&copy; 2025 XuJin Chen. All rights reserved.</p>
+    <p>&copy; 2025 Xu Jin Chen. All rights reserved.</p>
   </footer>
+
+  <script>
+    function toggleSidebar(forceClose = false) {
+      const sidebar = document.getElementById("sidebar");
+      if (forceClose || sidebar.style.left === "0px") {
+        sidebar.style.left = "-270px"; // fully hide it
+      } else {
+        sidebar.style.left = "0px";
+      }
+    }
+
+    // Close sidebar when clicking outside it
+    document.addEventListener("click", function (event) {
+      const sidebar = document.getElementById("sidebar");
+      const button = document.querySelector(".openbtn");
+      if (
+        sidebar.style.left === "0px" &&
+        !sidebar.contains(event.target) &&
+        !button.contains(event.target)
+      ) {
+        toggleSidebar(true);
+      }
+    });
+  </script>
+
 </body>
 </html>
