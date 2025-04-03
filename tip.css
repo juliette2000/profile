@@ -1,0 +1,103 @@
+/* Layout and fonts */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f0f4f8;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Centered card */
+.container {
+  background: #ffffff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Title aligned left */
+h1 {
+  margin: 0 0 20px 0;
+  color: #2c3e50;
+  font-size: 1.8rem;
+  text-align: left;
+}
+
+/* Labels and inputs */
+form label {
+  display: block;
+  margin: 15px 0 5px;
+  color: #333;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.input-group span {
+  background: #eee;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px 0 0 6px;
+  font-weight: bold;
+  color: #555;
+}
+
+.input-group input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 0 6px 6px 0;
+  border: 1px solid #ccc;
+  border-left: none;
+}
+
+form input,
+form select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button#calculate {
+  width: 100%;
+  padding: 12px;
+  margin-top: 20px;
+  background-color: #3498db;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button#calculate:hover {
+  background-color: #2980b9;
+}
+
+/* Tip display */
+#totalTip {
+  margin-top: 15px;
+  text-align: left;
+  font-size: 1.4em;
+  color: #27ae60;
+  display: none;
+}
+
+.result sup {
+  font-size: 0.5em;
+}
+
+#each {
+  display: block;
+  font-size: 0.8em;
+  color: #555;
+}
